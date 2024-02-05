@@ -45,3 +45,32 @@ def response(user_response):
      robo1_response =  robo1_response + sentence_tokens(idx)
      return  robo1_response
 
+flag=True
+print('hello! I am a learning chatbot start typing your text after greeting me and end the convo by saying bye')
+while(flag==True):
+  user_response=input()
+  user_response=user_response.lower()
+  if(user_response != 'bye'):
+    if(user_response =='Thankyou' or user_response =='Thanks'):
+      flag = False
+      print('bot you are welcome!')
+    else:
+      if(greet(user_response) != None):
+        print('bot'+ greet(user_response))
+      else:
+        sentence_tokens.append(user_response)
+        word_tokens = word_tokens + nltk.word_tokenize(user_response)
+        final_words = list(set(word_tokens))
+        print('bot:', end='')
+        print(response(user_response))
+        sentence_tokens.remove(user_response)
+  else:
+       flag = False
+       print('bot: Goodbye')     
+
+
+
+
+
+
+
