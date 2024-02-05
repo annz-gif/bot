@@ -19,3 +19,10 @@ def LemTokens(tokens):
 remove_punc_dict = dict((ord(punct), None ) for punct in string.punctuation)
 def LemNormalize(text):
   return lemTokens(nltk.word_tokenize(text.lower().translate(remove_punc_dict)))
+  //greet function
+  greet_inputs=('hello','hi','whatsap','how are you?')
+greet_responses=('hi','hey','hey there','there there')
+def greet(sentence):
+  for word in sentence.split():
+    if word.lower() in greet_inputs:
+      return random.choice(greet_responses)
