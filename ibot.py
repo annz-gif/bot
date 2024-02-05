@@ -26,3 +26,22 @@ def greet(sentence):
   for word in sentence.split():
     if word.lower() in greet_inputs:
       return random.choice(greet_responses)
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+def response(user_response):
+  robo1_response=''
+  TfidfVect = TfidfVectorizer(tokenizer=LemNormalize, stop_words='english')
+  tfidf = TfidfVec.fit_transform(sentence_tokens)
+  vals = cosine_similarity(tfidf[-1],tfidf)
+  idx = vals.argsort()[0][-2]
+  flat = vals.flatten
+  flat.sort()
+  req_tfidf = flat[-2]
+  if (req_tfidf==0):
+    robo1_response =  robo1_response +"Sorry , unable to understand you"
+    return robo1_response
+  else:
+     robo1_response =  robo1_response + sentence_tokens(idx)
+     return  robo1_response
+
